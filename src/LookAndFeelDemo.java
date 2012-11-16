@@ -217,7 +217,7 @@ public class LookAndFeelDemo implements ActionListener {
         JFrame.setDefaultLookAndFeelDecorated(true);
 
         //Create and set up the window.
-        JFrame frame = new JFrame("Add Two Numbers");
+        JFrame frame = new JFrame("Multiply Two Numbers");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
         LookAndFeelDemo app = new LookAndFeelDemo();
