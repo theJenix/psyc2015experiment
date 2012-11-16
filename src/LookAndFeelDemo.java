@@ -55,7 +55,7 @@ public class LookAndFeelDemo implements ActionListener {
         eqPane.setLayout(new BoxLayout(eqPane, BoxLayout.X_AXIS));
         this.input1 = new JTextField();
         eqPane.add(this.input1);
-        eqPane.add(new JLabel(" x "));
+        eqPane.add(new JLabel(" + "));
         this.input2 = new JTextField();
         eqPane.add(this.input2);
         eqPane.add(new JLabel(" = "));
@@ -87,14 +87,20 @@ public class LookAndFeelDemo implements ActionListener {
             final JDialog dlg = new JDialog(theFrame, "Progress Dialog", true);
             final JProgressBar dpb = new JProgressBar(0, milliseconds);
             dpb.setBorder(new EmptyBorder(10, 10, 10, 10));
+            dpb.setPreferredSize(new Dimension(300, 20));
             dlg.add(BorderLayout.CENTER, dpb);
             JLabel label = new JLabel("Progress...");
             label.setBorder(new EmptyBorder(10, 10, 10, 0));
             dlg.add(BorderLayout.NORTH, label);
+            JLabel label2 = new JLabel("");
+            if (LOOKANDFEEL.equalsIgnoreCase("system")) {
+                label2.setBorder(new EmptyBorder(0, 10, 10, 10));
+            }
+            dlg.add(BorderLayout.SOUTH, label2);
             dlg.setDefaultCloseOperation(JDialog.DO_NOTHING_ON_CLOSE);
-            dlg.setSize(300, 90);
+            dlg.setSize(300, LOOKANDFEEL.equalsIgnoreCase("system") ? 100 : 110);
+
             dlg.setLocationRelativeTo(theFrame);
-            
             new Thread(new Runnable() {
 
                 @Override
@@ -217,7 +223,7 @@ public class LookAndFeelDemo implements ActionListener {
         JFrame.setDefaultLookAndFeelDecorated(true);
 
         //Create and set up the window.
-        JFrame frame = new JFrame("Multiply Two Numbers");
+        JFrame frame = new JFrame("Add Two Numbers");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
         LookAndFeelDemo app = new LookAndFeelDemo();
