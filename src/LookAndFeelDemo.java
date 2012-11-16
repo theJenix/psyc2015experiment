@@ -44,7 +44,7 @@ public class LookAndFeelDemo implements ActionListener {
     private static JFrame theFrame;
     
 
-    public Component createComponents() {
+    public JPanel createComponents() {
         JButton button = new JButton("Run!");
         button.setMnemonic(KeyEvent.VK_I);
         button.addActionListener(this);
@@ -221,16 +221,26 @@ public class LookAndFeelDemo implements ActionListener {
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
         LookAndFeelDemo app = new LookAndFeelDemo();
-        Component contents = app.createComponents();
+        JPanel contents = app.createComponents();
         frame.getContentPane().add(contents, BorderLayout.CENTER);
 
         Toolkit tk = Toolkit.getDefaultToolkit();
         Dimension screenSize = tk.getScreenSize();
         int screenHeight = screenSize.height;
         int screenWidth = screenSize.width;
-        
+
+        Dimension d = new Dimension(screenWidth, screenHeight);
         //Display the window.
-        frame.pack();        
+        frame.pack();
+        frame.setPreferredSize(d);
+        contents.setBorder(BorderFactory.createEmptyBorder(
+                screenHeight/2 - frame.getHeight(), //top
+                (screenWidth - frame.getWidth()) / 2, //left
+                screenHeight/2 - frame.getHeight(), //bottom
+                (screenWidth - frame.getWidth()) / 2) //right
+                );
+
+        frame.pack();
         frame.setLocation(screenWidth / 2 - frame.getWidth() / 2, screenHeight / 2 - frame.getHeight() / 2);
         frame.setVisible(true);
         LookAndFeelDemo.theFrame = frame;
