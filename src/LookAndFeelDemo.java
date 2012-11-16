@@ -83,7 +83,7 @@ public class LookAndFeelDemo implements ActionListener {
             final int milliseconds = SECDELAY * 1000;
             Integer in1 = Integer.valueOf(this.input1.getText());
             Integer in2 = Integer.valueOf(this.input2.getText());
-            final int result = in1 * in2;
+            final int result = in1 + in2;
             final JDialog dlg = new JDialog(theFrame, "Progress Dialog", true);
             final JProgressBar dpb = new JProgressBar(0, milliseconds);
             dpb.setBorder(new EmptyBorder(10, 10, 10, 10));
