@@ -1,1 +1,1 @@
-java -cp bin LookAndFeelDemo new %1
+@java -cp bin LookAndFeelDemo new %1

@@ -1,1 +1,1 @@
-java -cp bin LookAndFeelDemo old %1
+@java -cp bin LookAndFeelDemo old %1
